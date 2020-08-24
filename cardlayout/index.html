@@ -1,206 +1,222 @@
 <html>
 <head>
-    <!-- PT Sans fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <!-- Pirata One -->
-    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
-    <!-- Germania One -->
-    <link href="https://fonts.googleapis.com/css2?family=Germania+One&display=swap" rel="stylesheet">
-    <!-- Milonga -->
-    <link href="https://fonts.googleapis.com/css2?family=Milonga&display=swap" rel="stylesheet">
-    <!-- Amarante -->
-    <link href="https://fonts.googleapis.com/css2?family=Amarante&display=swap" rel="stylesheet">
-    <!-- Rakkas -->
-    <link href="https://fonts.googleapis.com/css2?family=Rakkas&display=swap" rel="stylesheet">
-    <!-- Mirza -->
-    <link href="https://fonts.googleapis.com/css2?family=Mirza:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Berkshire Swash -->
-    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+	<!-- PT Sans fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+	<!-- Pirata One -->
+	<link href="https://fonts.googleapis.com/css2?family=Pirata+One&display=swap" rel="stylesheet">
+	<!-- Germania One -->
+	<link href="https://fonts.googleapis.com/css2?family=Germania+One&display=swap" rel="stylesheet">
+	<!-- Milonga -->
+	<link href="https://fonts.googleapis.com/css2?family=Milonga&display=swap" rel="stylesheet">
+	<!-- Amarante -->
+	<link href="https://fonts.googleapis.com/css2?family=Amarante&display=swap" rel="stylesheet">
+	<!-- Rakkas -->
+	<link href="https://fonts.googleapis.com/css2?family=Rakkas&display=swap" rel="stylesheet">
+	<!-- Mirza -->
+	<link href="https://fonts.googleapis.com/css2?family=Mirza:wght@400;500;600;700&display=swap" rel="stylesheet">
+	<!-- Berkshire Swash -->
+	<link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
 
-    <link href="./Rpg-Awesome-master/css/rpg-awesome.min.css" rel="stylesheet">
+	<link href="./Rpg-Awesome-master/css/rpg-awesome.min.css" rel="stylesheet">
 
 
 <style>
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-    body, html {
-        padding: 0;
-        margin: 0;
-    }
-    body {
-        background: #eee;
-        padding: 10mm;
-    }
-    .card {
-        background: #fff;
-        margin: 3mm;
-        line-height: 1.1;
-        font-family: 'Amarante', sans-serif;
-        /* font-family: 'PT Sans Narrow', sans-serif; */
-        /* font-family: 'Berkshire Swash', 'PT Sans Narrow', sans-serif; */
-        width: 63mm;
-        height: 88mm;
-        box-shadow: 0 1mm 2mm #000;
-        border-radius: 3mm;
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+	body, html {
+		padding: 0;
+		margin: 0;
+	}
+	body {
+		background: #eee;
+		padding: 10mm;
+	}
+	.card {
+		float: left;
+		font-size: 4.5mm;
+		background: #fff;
+		margin: 3mm;
+		line-height: 1.1;
+		font-family: 'Amarante', sans-serif;
+		font-family: 'PT Sans Narrow', sans-serif;
+		/* font-family: 'Berkshire Swash', 'PT Sans Narrow', sans-serif; */
+		width: 63mm;
+		height: 88mm;
+		box-shadow: 0 1mm 2mm #000;
+		border-radius: 3mm;
 
 
 
-        display: grid;
-        grid-template-areas:
-            " .   .    .     .     .     .     .     .    .   ."
-            " .  nw   nw   nbar  nbar  nbar  nbar   ne   ne   ."
-            " .  nw   nw   title title title title  ne   ne   ."
-            " . wbar   .   title title title title  .   ebar  ."
-            " . wbar core  core  core  core  core  core ebar  ."
-            " . wbar core  core  core  core  core  core ebar  ."
-            " .  sw   sw   foot  foot  foot  foot   se   se   ."
-            " .  sw   sw   sbar  sbar  sbar  sbar   se   se   ."
-            " .   .    .     .     .     .     .     .    .   ."
-        ;
-        grid-template-columns:
-               2mm 2mm  8mm  1fr   1fr   1fr   1fr   8mm  2mm 2mm;
-        grid-template-rows:
-               2mm 2mm  8mm  5mm   1fr   1fr   8mm  2mm 2mm;
-    }
-    .card > * { 
-        box-shadow: inset 0 0 10px #0001;
-        border-radius: 2mm;
-    }
-    .title { grid-area: title; }
-    .core { grid-area: core; }
-    .foot { grid-area: foot; }
-    .nw { grid-area: nw; }
-    .ne { grid-area: ne; }
-    .sw { grid-area: sw; }
-    .se { grid-area: se; }
-    .corner {
-        display: flex;
-        align-content: center;
-        justify-content: center;
-        border-radius: 50%;
-        border: 1px solid #ccc;
-        opacity: 0.5;
-        font-size: 50%;
-    }
+		display: grid;
+		grid-template-areas:
+			" .   .    .     .     .     .     .     .    .   ."
+			" .  nw   nw   nbar  nbar  nbar  nbar   ne   ne   ."
+			" .  nw   nw   title title title title  ne   ne   ."
+			" . wbar   .   title title title title  .   ebar  ."
+			" . wbar core  core  core  core  core  core ebar  ."
+			" . wbar core  core  core  core  core  core ebar  ."
+/*			" .  sw   sw   foot  foot  foot  foot   se   se   ."
+			" .  sw   sw   sbar  sbar  sbar  sbar   se   se   ." */
+			" . foot foot  foot  foot  foot  foot  foot foot  ."
+			" .  sw   sw   sbar  sbar  sbar  sbar   se   se   ."
+			" .   .    .     .     .     .     .     .    .   ."
+		;
+		grid-template-columns:
+			   2mm 2mm  8mm  1fr   1fr   1fr   1fr   8mm  2mm 2mm;
+		grid-template-rows:
+			   2mm 2mm  8mm  5mm   1fr   1fr   8mm  2mm 2mm;
+	}
+	.card > * { 
+		box-shadow: inset 0 0 10px #0001;
+		border-radius: 2mm;
+	}
+	.title { grid-area: title; }
+	.core { grid-area: core; }
+	.foot { grid-area: foot; }
+	.nw { grid-area: nw; }
+	.ne { grid-area: ne; }
+	.sw { grid-area: sw; }
+	.se { grid-area: se; }
+	.corner {
+		display: flex;
+		align-content: center;
+		justify-content: center;
+		border-radius: 50%;
+		font-size: 50%;
+		box-shadow: inset 0 0 8px #0006;
+	}
+	.corner i {
+		font-size: 7mm;
+		line-height: 10mm;
+	}
 
-    .title {
-        font-family: 'Amarante';
-        font-weight: 900;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        justify-content: center;
-    }
-    .title small {
-        font-weight: 300;
-        font-size: 70%;
-        margin: 0;
-        padding: 0;
-    }
+	.foot {
+		font-size: 90%;
+		text-align: center;
+	}
+	.title {
+		font-family: 'Amarante';
+		font-weight: 900;
+		font-size: 110%;
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		justify-content: center;
+	}
+	.title small {
+		font-weight: 300;
+		font-size: 70%;
+		margin: 0;
+		padding: 0;
+	}
 
-    .core {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        height: 100%;
-    }
+	.core {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		height: 100%;
+	}
 
-    .core p {
-        padding: 0;
-        margin: 0;
-    }
+	.core .hearts {
+		font-size: 200%;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+	
+	.core p {
+		padding: 0;
+		margin: 0;
+	}
 
-    .core .color {
-        /* colour description */
-        font-size: 100%;
-    }
+	.core .color {
+		/* colour description */
+		font-size: 100%;
+	}
 
-    .core .detail {
-        /* mechanical info */
-        font-size: 80%;
-        display: flex;
-    }
+	.core .detailtext {
+		font-size: 90%;
+	}
 
-    table {
-        align-self: flex-start;
-        font-size: inherit;
-        margin-right: 0.66em;
-    }
+	.core .detail {
+		display: flex;
+	}
 
-    table.roll td {
-        white-space: nowrap;
+	table {
+		align-self: flex-start;
+		font-size: inherit;
+		margin-right: 0.66em;
+		margin: 0 auto;
+		border-collapse: collapse;
+	}
 
-    }
+	table.roll td {
+		white-space: nowrap;
+	}
 
-    table.roll tr td:first-of-type {
-        /* background-image: url(./pentagon.svg); */
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        text-align: center;
-        vertical-align: middle;
-    }
+	table.roll tr td:first-of-type {
+		/* background-image: url(./pentagon.svg); */
+		font-family: 'Amarante';
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		text-align: right;
+		padding-right: 2mm;
+		vertical-align: middle;
+	}
 
-    i {
-        position: relative;
-        font-style: normal;
-        margin-right: -0.1em;
-        font-size: 80%;
-    }
-    i.heart:before { content: '\2665' }
-    i.opp:before { color: #3388ee; }
-    i.plr:before { color: #ee5566; }
+	i {
+		position: relative;
+		font-style: normal;
+		margin-left: 0.25mm;
+		font-size: 110%;
+	}
+	i.heart:before { content: '\2665' }
+	i.opp:before { color: #3388ee; }
+	i.plr:before { color: #ee5566; }
 
-    i:after {
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        content: '';
-    }
-    i.bar:after {
-        background-image: linear-gradient(135deg,
-        rgba(255,255,255, 0) 46%,
-        rgba(255,255,255, 1) 46%,
-        rgba(255,255,255, 1) 49%,
-        rgba(0,0,0, 1) 49%,
-        rgba(0,0,0, 1) 51%,
-        rgba(0,0,0, 1) 53%,
-        rgba(0,0,0, 0) 53%
-        ); 
-    }
-    i.add:after {
-        background-size: 45% 40%;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-image: 
-            linear-gradient(0deg,
-                rgba(255,210,0, 0) 33%,
-                rgba(255,210,0, 1) 33%,
-                rgba(255,210,0, 1) 66%,
-                rgba(255,210,0, 0) 66%
-            ),
-            linear-gradient(90deg,
-                rgba(255,210,0, 0) 33%,
-                rgba(255,210,0, 1) 33%,
-                rgba(255,210,0, 1) 66%,
-                rgba(255,210,0, 0) 66%
-            /* ),
-            linear-gradient(0deg,
-                rgba(255,255,255, 0) 28%,
-                rgba(255,255,255, 1) 28%,
-                rgba(255,255,255, 1) 72%,
-                rgba(255,255,255, 0) 72%
-            ),
-            linear-gradient(90deg,
-                rgba(255,255,255, 0) 28%,
-                rgba(255,255,255, 1) 28%,
-                rgba(255,255,255, 1) 72%,
-                rgba(255,255,255, 0) 72% */
-            )
-        ; 
-    }
+	i.opp + i.opp {
+		margin-left: -0.25mm;
+	}
+
+	i:after {
+		position: absolute;
+		top: 0; left: 0; right: 0; bottom: 0;
+		content: '';
+	}
+	i.bar:after {
+		background-image: linear-gradient(135deg,
+		rgba(255,255,255, 0) 46%,
+		rgba(255,255,255, 1) 46%,
+		rgba(255,255,255, 1) 49%,
+		rgba(0,0,0, 1) 49%,
+		rgba(0,0,0, 1) 51%,
+		rgba(0,0,0, 1) 53%,
+		rgba(0,0,0, 0) 53%
+		); 
+	}
+	i.add:after {
+		background-size: 45% 40%;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-image: 
+			linear-gradient(0deg,
+				rgba(255,210,0, 0) 33%,
+				rgba(255,210,0, 1) 33%,
+				rgba(255,210,0, 1) 66%,
+				rgba(255,210,0, 0) 66%
+			),
+			linear-gradient(90deg,
+				rgba(255,210,0, 0) 33%,
+				rgba(255,210,0, 1) 33%,
+				rgba(255,210,0, 1) 66%,
+				rgba(255,210,0, 0) 66%
+			)
+		; 
+	}
 </style>
 
 
@@ -208,90 +224,224 @@
 <body>
 
 <template id="cardtemplate">
-    <div class="card">
+	<div class="card">
 
-        <div class="title">
-            <small>{{pretitle}}</small>
-            {{title}}
-            <small>{{posttitle}}</small>
-        </div>
-        <div class="foot">{{foot}}</div>
-        <div class="nw corner">{{nw}}</div>
-        <div class="ne corner">{{ne}}</div>
-        <div class="sw corner">{{sw}}</div>
-        <div class="se corner">{{se}}</div>
-    
-        <div class="core">
-            <div class="color">
-                <p class="desc">{{desc}}</p>
-            </div>
-            <div class="detail">
-                {{rolls}}
-                <div class="detailtext">
-                    <p>{{detail}}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    
+		<div class="title">
+			<small>{{pretitle}}</small>
+			{{title}}
+			<small>{{posttitle}}</small>
+		</div>
+		<div class="foot">{{foot}}</div>
+		<div class="nw corner">{{nw}}</div>
+		<div class="ne corner">{{ne}}</div>
+		<div class="sw corner">{{sw}}</div>
+		<div class="se corner">{{se}}</div>
+	
+		<div class="core">
+			{{hearts}}
+			<div class="color">
+				<p class="desc">{{desc}}</p>
+			</div>
+			<div class="detail">
+				{{rolls}}
+			</div>
+			<div class="detailtext">
+				{{detail}}
+			</div>
+	</div>
+	</div>
+	
 </template>
 
 
 
 <script>
-    // return a table row for the number and result
-    function makeRoll(num, res) {
-        const rowtemplate = '<tr><td>{{roll}}</td><td>{{result}}</td></tr>'
-        const hurtSelf = ''
-        const hurtEnemy = '<i class="heart opp bar"></i><i class="heart plr add"></i>'
-        let row = rowtemplate
-        let result = res.replace(/\s+/g, '')
-        result = result.replace(/o-/g, '<i class="heart opp bar"></i>')
-        result = result.replace(/o\+/g, '<i class="heart opp add"></i>')
-        result = result.replace(/p-/g, '<i class="heart plr bar"></i>')
-        result = result.replace(/p\+/g, '<i class="heart plr add"></i>')
-        row = row.replace('{{roll}}', num)
-        row = row.replace('{{result}}', result)
-        console.log(row)
-        return row
-    }
+	// return a table row for the number and result
+	function makeRoll(num, res) {
+		const rowtemplate = '<tr><td>{{roll}}</td><td>{{result}}</td></tr>'
+		const hurtSelf = ''
+		const hurtEnemy = '<i class="heart opp bar"></i><i class="heart plr add"></i>'
+		let row = rowtemplate
+		let result = res.replace(/\s+/g, '')
+		result = result.replace(/o-/g, '<i class="heart opp bar"></i>')
+		result = result.replace(/o\+/g, '<i class="heart opp add"></i>')
+		result = result.replace(/p-/g, '<i class="heart plr bar"></i>')
+		result = result.replace(/p\+/g, '<i class="heart plr add"></i>')
+		row = row.replace('{{roll}}', num.replace('-', '&thinsp;-&thinsp;'))
+		row = row.replace('{{result}}', result)
+		return row
+	}
 
-    function cardSub(card, {rolls, ...data}) {
-        for (let item in data) {
-            card = card.replace('{{' + item + '}}', data[item])
-        }
-        let rollList = []
-        rollList = rolls.map( ([roll, res]) => makeRoll(roll, res) )
-        // for (let roll in rolls) {
-        //     rollList.push( makeRoll(roll, rolls[roll]) )
-        // }
-        let rollTable = '<table class="roll">' + rollList.join('\n') + '</table>'
-        card = card.replace('{{rolls}}', rollTable)
-        return card
-    }
+	// return a div full of hearts
+	function heartList(heartCount, realm) {
+		let heart = `<i class="heart ${realm === 'opponent' ? 'opp' : 'plr'}"></i>`
+		return `<div class="hearts">${heart.repeat(heartCount)}</div>`
+	}
 
-    let newCard = document.getElementById('cardtemplate').innerHTML
+	// return an icon for a category etc
+	function iconFor(thing) {
+	return {
+			// realms
+			'player': '<i class="ra ra-player"></i>',
+			'opponent': '<i class="ra ra-blade-bite"></i>',
+			// category
+			'combat': '<i class="ra ra-bat-sword"></i>',
+			// type
+			'main-hand': '<i class="ra ra-hand"></i>',
+		}[thing]
+	}
 
-    console.log(newCard)
+	function cardSub(card, {rolls, type, category, realm, hearts, ...data}) {
+		// general text replacement
+		for (let item in data) {
+			card = card.replace('{{' + item + '}}', data[item])
+		}
+		// add category stuff
+		card = card.replace('{{nw}}', iconFor(realm))
+		card = card.replace('{{ne}}', iconFor(category))
 
-    let vcutlass = {
-        type: 'combat', // protection,  
-        category: 'main-hand', // off-hand, head, ally, etc
-        pretitle: 'The',
-        title: 'Vampyric Cutlass',
-        posttitle: 'of Bluebeard the Pirate',
-        desc: 'A heavy, wickedly curved pirate\'s blade stained faintly with the blood of a hundred enemies.',
-        detail: 'A natural 12 always restores at least one heart to the wielder.',
-        rolls: [
-            ['12',  'o- o- p+ p+'],
-            ['11',  'p- o+ p+'],
-            ['10',  'o- o- p+'],
-            ['9-7', 'o-']
-        ]
-    }
+		// add hearts
+		if (hearts) {
+			card = card.replace('{{hearts}}', heartList(hearts, realm))
+		}
 
-    newCard = cardSub(newCard, vcutlass)
-    document.querySelector('body').insertAdjacentHTML('beforeend', newCard)
+		// add roll table
+		let rollList = []
+		rollList = rolls.map( ([roll, res]) => makeRoll(roll, res) )
+		let rollTable = '<table class="roll">' + rollList.join('\n') + '</table>'
+		card = card.replace('{{rolls}}', rollTable)
+
+		// add tag list
+		let tagList = [realm, type, category]
+		card = card.replace('{{foot}}', tagList.join(' · '))
+		// all done
+		return card
+	}
+
+
+	let cards = {
+		// ------------------------------------------------
+		fist: {
+			realm: 'player', // location, opponent, obstacle?, treasure?
+			type: 'combat', // protection,
+			category: 'any-hand', // off-hand, head, ally, etc
+			pretitle: '', title: 'Your Fist', posttitle: '',
+			desc: 'The weapon always with you is the one you were born with.',
+			detail: '',
+			rolls: [
+				['12',  'o-'],
+				['11',  'o-']
+			]
+		}, // ---------------------------------------------
+		club: {
+			realm: 'player', // location, opponent, obstacle?, treasure?
+			type: 'combat', // protection,
+			category: 'main-hand', // off-hand, head, ally, etc
+			pretitle: '', title: 'Wooden Club', posttitle: '',
+			desc: 'A peasant\'s weapon, no more than roughly shaped length of stout tree branch.',
+			detail: '',
+			rolls: [
+				['12-9',  'o-']
+			]
+		}, // ---------------------------------------------
+		daggerI: {
+			realm: 'player', // location, opponent, obstacle?, treasure?
+			type: 'combat', // protection,
+			category: 'any-hand', // off-hand, head, ally, etc
+			pretitle: '', title: 'Iron Dagger', posttitle: '',
+			desc: 'A small simple blade.',
+			detail: '',
+			rolls: [
+				['12',  'o- o-'],
+				['11-9',  'o-'],
+			]
+		}, // ---------------------------------------------
+		daggerS: {
+			realm: 'player', // location, opponent, obstacle?, treasure?
+			type: 'combat', // protection,
+			category: 'any-hand', // off-hand, head, ally, etc
+			pretitle: '', title: 'Steel Dagger', posttitle: '',
+			desc: 'A small blade with a keen edge.',
+			detail: '',
+			rolls: [
+				['12',  'o- o-'],
+				['11',  'o- o-'],
+				['10-8',  'o-'],
+			]
+		}, // ---------------------------------------------
+		daggerAg: {
+			realm: 'player', // location, opponent, obstacle?, treasure?
+			type: 'combat', // protection,
+			category: 'any-hand', // off-hand, head, ally, etc
+			pretitle: '', title: 'Silver Dagger', posttitle: '',
+			desc: 'A fine dagger with a bright blade.',
+			detail: 'Were-creature opponents receive double the listed damage.',
+			rolls: [
+				['12',  'o- o-'],
+				['11',  'o- o-'],
+				['10-8',  'o-'],
+			]
+		}, // ---------------------------------------------
+		swordI: {
+			realm: 'player', // location, opponent, obstacle?, treasure?
+			type: 'combat', // protection,
+			category: 'main-hand', // off-hand, head, ally, etc
+			pretitle: '', title: 'Iron Sword', posttitle: '',
+			desc: 'A plain weapon, simple and deadly.',
+			detail: '',
+			rolls: [
+				['12',  'o- o- o-'],
+				['11',  'o- o-'],
+				['10-7', 'o-']
+			]
+		}, // ---------------------------------------------
+		swordS: {
+			realm: 'player', // location, opponent, obstacle?, treasure?
+			type: 'combat', // protection,
+			category: 'main-hand', // off-hand, head, ally, etc
+			pretitle: '', title: 'Steel Sword', posttitle: '',
+			desc: 'A well made weapon, favoured by knights and brigands alike.',
+			detail: '',
+			rolls: [
+				['12',  'o- o- o-'],
+				['11',  'o- o-'],
+				['10',  'o- o-'],
+				['9-7', 'o-']
+			]
+		}, // ---------------------------------------------
+		cutlassV: {
+			realm: 'player', // location, opponent, obstacle?, treasure?
+			type: 'combat', // protection,
+			category: 'main-hand', // off-hand, head, ally, etc
+			pretitle: 'Bluebeard\'s', title: 'Vampyric Cutlass', posttitle: '',
+			desc: 'A heavy, wickedly curved pirate\'s blade stained faintly with the blood of a hundred enemies.',
+			detail: '',
+			rolls: [
+				['12',  'o- o- o- p+'],
+				['11',  'o- o- p+'],
+				['10',  'o- o- p+'],
+				['9-7', 'o-']
+			]
+		}, // ---------------------------------------------
+		ruffian: {
+			realm: 'opponent',
+			type: 'combat',
+			category: 'meelee?',
+			pretitle: '', title: 'Ruffian', posttitle: '',
+			hearts: 1,
+			desc: 'A bully using violence and intimidation to get their way.',
+			detail: '',
+			rolls: [
+				['3-1',  'p-'],
+			]
+		}, // ---------------------------------------------
+	}
+
+	for (c in cards) {
+		let newCard = document.getElementById('cardtemplate').innerHTML
+		newCard = cardSub(newCard, cards[c])
+		document.querySelector('body').insertAdjacentHTML('beforeend', newCard)
+	}
 </script>
 </body>
 </html>
