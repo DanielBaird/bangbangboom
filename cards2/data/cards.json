@@ -1,0 +1,301 @@
+{
+    "weapons": {
+        "fist": {
+            "realm": "player",
+            "type": "combat",
+            "category": "any-hand",
+            "pretitle": "", "title": "Your Fist", "posttitle": "",
+            "desc": "The weapon always with you is the one you were born with.",
+            "detail": "",
+            "rolls": [
+                ["12",  "o-"],
+                ["11",  "o-"]
+            ]
+        },
+        "club": {
+            "realm": "player",
+            "type": "combat",
+            "category": "main-hand",
+            "pretitle": "", "title": "Wooden Club", "posttitle": "",
+            "desc": "A peasant's weapon, no more than roughly shaped length of stout tree branch.",
+            "detail": "",
+            "rolls": [
+                ["12-9",  "o-"]
+            ]
+        },
+        "daggerI": {
+            "realm": "player",
+            "type": "combat",
+            "category": "any-hand",
+            "pretitle": "", "title": "Iron Dagger", "posttitle": "",
+            "desc": "A small simple blade.",
+            "detail": "",
+            "rolls": [
+                ["12",  "o- o-"],
+                ["11-9",  "o-"]
+            ]
+        },
+        "daggerS": {
+            "realm": "player",
+            "type": "combat",
+            "category": "any-hand",
+            "pretitle": "", "title": "Steel Dagger", "posttitle": "",
+            "desc": "A small blade with a keen edge.",
+            "detail": "",
+            "rolls": [
+                ["12",  "o- o-"],
+                ["11",  "o- o-"],
+                ["10-8",  "o-"]
+            ]
+        },
+        "daggerAg": {
+            "realm": "player",
+            "type": "combat",
+            "category": "any-hand",
+            "pretitle": "", "title": "Silver Dagger", "posttitle": "",
+            "desc": "A fine dagger with a bright blade.",
+            "detail": "When using this weapon against a were-creature, do twice as much damage as your normally would.",
+            "rolls": [
+                ["12",  "o- o-"],
+                ["11",  "o- o-"],
+                ["10-8",  "o-"]
+            ]
+        },
+        "swordI": {
+            "realm": "player",
+            "type": "combat",
+            "category": "main-hand",
+            "pretitle": "", "title": "Iron Sword", "posttitle": "",
+            "desc": "A plain weapon, simple and deadly.",
+            "detail": "",
+            "rolls": [
+                ["12",  "o- o- o-"],
+                ["11",  "o- o-"],
+                ["10-7", "o-"]
+            ]
+        },
+        "swordS": {
+            "realm": "player",
+            "type": "combat",
+            "category": "main-hand",
+            "pretitle": "", "title": "Steel Sword", "posttitle": "",
+            "desc": "A well made weapon, favoured by knights and brigands alike.",
+            "detail": "",
+            "rolls": [
+                ["12",  "o- o- o-"],
+                ["11",  "o- o-"],
+                ["10",  "o- o-"],
+                ["9-7", "o-"]
+            ]
+        },
+        "cutlassV": {
+            "realm": "player",
+            "type": "combat",
+            "category": "main-hand",
+            "pretitle": "Bluebeard's", "title": "Vampyric Cutlass", "posttitle": "",
+            "desc": "A heavy, wickedly curved pirate's blade stained faintly with the blood of a hundred enemies.",
+            "detail": "",
+            "rolls": [
+                ["12",  "o- o- o- p+"],
+                ["11",  "o- o- p+"],
+                ["10",  "o- o- p+"],
+                ["9-7", "o-"]
+            ]
+        }
+    },
+    "opponents": {
+        "drunkard": {
+            "realm": "opponent",
+            "type": "combat",
+            "category": "meelee?",
+            "pretitle": "", "title": "Drunkard", "posttitle": "",
+            "health": "o",
+            "desc": "A fool, angry at something they can't quite remember.",
+            "detail": "",
+            "rolls": [
+                ["wild swing", "1",  "p-"]
+            ]
+        },
+        "ruffian": {
+            "realm": "opponent",
+            "type": "combat",
+            "category": "meelee?",
+            "pretitle": "", "title": "Ruffian", "posttitle": "",
+            "health": "o o",
+            "desc": "A bully who uses violence and intimidation to get their way.",
+            "detail": "",
+            "rolls": [
+                ["punch", "3-1",  "p-"]
+            ]
+        },
+        "banditS": {
+            "realm": "opponent",
+            "type": "combat",
+            "category": "meelee?",
+            "pretitle": "", "title": "Bandit", "posttitle": "",
+            "health": "o o",
+            "desc": "A murderous thief with no respect for person or property.",
+            "detail": "",
+            "rolls": [
+                ["sword", "4-2",  "p-"],
+                ["sword", "1",  "p- p-"]
+            ]
+        },
+        "banditA": {
+            "realm": "opponent",
+            "type": "combat",
+            "category": "ranged?",
+            "pretitle": "", "title": "Bandit Archer", "posttitle": "",
+            "health": "o o",
+            "desc": "A murderous thief with no respect for person or property.",
+            "detail": "",
+            "attack": "bow",
+            "rolls": [
+                ["arrow", "4-2",  "p-"],
+                ["arrow", "1",  "p- p-"]
+            ]
+        },
+        "banditL": {
+            "realm": "opponent",
+            "type": "combat",
+            "category": "ranged?",
+            "pretitle": "", "title": "Bandit Ringleader", "posttitle": "",
+            "health": "o o",
+            "desc": "A bandit who has survived and thrived.",
+            "detail": "",
+            "attack": "Steel Sword",
+            "rolls": [
+                ["sword", "6-4",  "p-"],
+                ["sword", "3-2",  "p- p-"],
+                ["sword", "1",  "p- p- p-"]
+            ]
+        },
+        "pirate": {
+            "realm": "opponent",
+            "type": "combat",
+            "category": "meelee?",
+            "pretitle": "", "title": "Pirate", "posttitle": "",
+            "health": "o o o",
+            "desc": "A treacherous sea-rat, hungry for your gold.",
+            "detail": "",
+            "attack": "cutlass",
+            "rolls": [
+                ["cutlass", "5-3",  "p-"],
+                ["cutlass", "2",  "p- p-"],
+                ["cutlass", "1",  "p- p- p-"]
+            ]
+        },
+        "wizardF": {
+            "realm": "opponent",
+            "type": "combat",
+            "category": "ranged?",
+            "pretitle": "Fire Circle", "title": "Wizard", "posttitle": "",
+            "health": "o o o",
+            "desc": "A crazed wizard with a blazing light in their eyes.",
+            "detail": "",
+            "attack": "fireball",
+            "rolls": [
+                ["blaze", "5-3",  "p-"],
+                ["blaze", "2",  "p- p-"],
+                ["fireball", "1",  "p- p- p- p- p-"]
+            ]
+        },
+        "wolf": {
+            "realm": "opponent",
+            "type": "combat",
+            "category": "ranged?",
+            "pretitle": "", "title": "Lone Wolf", "posttitle": "",
+            "health": "o",
+            "desc": "A lone wolf. Will you be her next meal?",
+            "detail": "",
+            "rolls": [
+                ["bite", "4-2",  "p-"],
+                ["bite", "1",  "p- p-"]
+            ]
+        },
+        "wolfpack": {
+            "realm": "opponent",
+            "type": "combat",
+            "category": "ranged?",
+            "pretitle": "", "title": "Wolf Pack", "posttitle": "",
+            "health": "o o o",
+            "desc": "A pack of hungry wolves, willing to fight for their next meal. It's hard to avoid their snapping teeth.",
+            "detail": "",
+            "attack": "bites",
+            "rolls": [
+                ["bite", "7-4", "p-"],
+                ["bite", "3-1", "p- p-"]
+            ]
+        },
+        "vampire": {
+            "realm": "opponent",
+            "type": "combat",
+            "category": "meelee",
+            "pretitle": "", "title": "Vampire", "posttitle": "",
+            "health": "o o o",
+            "desc": "",
+            "detail": "",
+            "attack": "bite",
+            "rolls": [
+                ["strike", "6-4",  "p-"],
+                ["bite", "3",  "p- o+"],
+                ["bite", "2",  "p- p- o+"],
+                ["bite", "1",  "p- p- p- o+"]
+            ]
+        },
+        "vampireQueen": {
+            "realm": "opponent",
+            "type": "combat",
+            "category": "meelee",
+            "pretitle": "", "title": "Vampire Queen", "posttitle": "",
+            "health": "o o o o o",
+            "desc": "",
+            "detail": "",
+            "attack": "bite",
+            "rolls": [
+                ["strike", "8-4",  "p-"],
+                ["bite", "3",  "p- p- o+"],
+                ["bite", "2",  "p- p- p- o+"],
+                ["bite", "1",  "p- p- p- p- p- o+ o+"]
+            ]
+        }
+    },
+    "tools": {
+        "shield1": {
+            "realm": "player",
+            "type": "combat",
+            "category": "off-hand",
+            "pretitle": "", "title": "Wood Shield", "posttitle": "",
+            "effect": "ps",
+            "desc": "A stout shield of wood.",
+            "detail": "Take one less heart of damage, unless you roll a 1."
+        },
+        "shield2": {
+            "realm": "player",
+            "type": "combat",
+            "category": "off-hand",
+            "pretitle": "", "title": "Steel Shield", "posttitle": "",
+            "effect": "ps ps ps",
+            "desc": "A light, strong shield of hammered steel.",
+            "detail": "Take two less hearts of damage, unless you roll a 1."
+        },
+        "heal1": {
+            "realm": "player",
+            "type": "combat",
+            "category": "any-hand",
+            "pretitle": "", "title": "Healing Potion", "posttitle": "",
+            "effect": "p+",
+            "desc": "A small red potion.",
+            "detail": "One swig and it's gone &mdash; discard after use."
+        },
+        "heal3": {
+            "realm": "player",
+            "type": "combat",
+            "category": "any-hand",
+            "pretitle": "Powerful", "title": "Healing Potion", "posttitle": "",
+            "effect": "p+ p+ p+",
+            "desc": "A dark potion, swirling with potency.",
+            "detail": "One swig and it's gone &mdash; discard after use."
+        }
+    }
+}

@@ -157,6 +157,14 @@
 		white-space: nowrap;
 	}
 
+	table.roll caption {
+		font-family: 'Amarante';
+		/* font-size: 80%; */
+		font-weight: 900;
+		white-space: nowrap;
+		/* font-style: italic; */
+	}
+
 	table.roll tr td:first-of-type {
 		/* background-image: url(./pentagon.svg); */
 		font-family: 'Amarante';
@@ -274,8 +282,11 @@
 
 	// return a div full of hearts
 	function heartList(heartCount, realm) {
-		let heart = `<i class="heart ${realm === 'opponent' ? 'opp' : 'plr'}"></i>`
-		return `<div class="hearts">${heart.repeat(heartCount)}</div>`
+		if (heartCount) {
+			let heart = `<i class="heart ${realm === 'opponent' ? 'opp' : 'plr'}"></i>`
+			return `<div class="hearts">${heart.repeat(heartCount)}</div>`
+		}
+		return ''
 	}
 
 	// return an icon for a category etc
@@ -286,12 +297,15 @@
 			'opponent': '<i class="ra ra-blade-bite"></i>',
 			// category
 			'combat': '<i class="ra ra-bat-sword"></i>',
+			'meelee?': '<i class="ra ra-sword"></i>',
+			'ranged?': '<i class="ra ra-arrow-cluster"></i>',
 			// type
 			'main-hand': '<i class="ra ra-hand"></i>',
+			'any-hand': '<i class="ra ra-hand"></i>',
 		}[thing]
 	}
 
-	function cardSub(card, {rolls, type, category, realm, hearts, ...data}) {
+	function cardSub(card, {rolls, type, category, realm, hearts, attack, ...data}) {
 		// general text replacement
 		for (let item in data) {
 			card = card.replace('{{' + item + '}}', data[item])
@@ -301,15 +315,18 @@
 		card = card.replace('{{ne}}', iconFor(category))
 
 		// add hearts
-		if (hearts) {
-			card = card.replace('{{hearts}}', heartList(hearts, realm))
-		}
+		card = card.replace('{{hearts}}', heartList(hearts, realm))
 
 		// add roll table
 		let rollList = []
 		rollList = rolls.map( ([roll, res]) => makeRoll(roll, res) )
-		let rollTable = '<table class="roll">' + rollList.join('\n') + '</table>'
-		card = card.replace('{{rolls}}', rollTable)
+		let rollTable = [
+			'<table class="roll">',
+			(attack ? `<caption>${attack}</caption>` : ''),
+			...rollList,
+			'</table>'
+		]
+		card = card.replace('{{rolls}}', rollTable.join('\n'))
 
 		// add tag list
 		let tagList = [realm, type, category]
@@ -423,16 +440,131 @@
 				['9-7', 'o-']
 			]
 		}, // ---------------------------------------------
+		drunkard: {
+			realm: 'opponent',
+			type: 'combat',
+			category: 'meelee?',
+			pretitle: '', title: 'Drunkard', posttitle: '',
+			hearts: 1,
+			desc: 'A fool, angry at something they can\'t quite remember.',
+			detail: '',
+			attack: 'wild swing',
+			rolls: [
+				['1',  'p-'],
+			]
+		}, // ---------------------------------------------
 		ruffian: {
 			realm: 'opponent',
 			type: 'combat',
 			category: 'meelee?',
 			pretitle: '', title: 'Ruffian', posttitle: '',
-			hearts: 1,
-			desc: 'A bully using violence and intimidation to get their way.',
+			hearts: 2,
+			desc: 'A bully who uses violence and intimidation to get their way.',
 			detail: '',
+			attack: 'punch',
 			rolls: [
 				['3-1',  'p-'],
+			]
+		}, // ---------------------------------------------
+		banditS: {
+			realm: 'opponent',
+			type: 'combat',
+			category: 'meelee?',
+			pretitle: '', title: 'Bandit', posttitle: '',
+			hearts: 2,
+			desc: 'A murderous thief with no respect for person or property.',
+			detail: '',
+			attack: 'iron sword',
+			rolls: [
+				['4-2',  'p-'],
+				['1',  'p- p-'],
+			]
+		}, // ---------------------------------------------
+		banditA: {
+			realm: 'opponent',
+			type: 'combat',
+			category: 'ranged?',
+			pretitle: '', title: 'Bandit Archer', posttitle: '',
+			hearts: 2,
+			desc: 'A murderous thief with no respect for person or property.',
+			detail: '',
+			attack: 'bow',
+			rolls: [
+				['4-2',  'p-'],
+				['1',  'p- p-'],
+			]
+		}, // ---------------------------------------------
+		banditL: {
+			realm: 'opponent',
+			type: 'combat',
+			category: 'ranged?',
+			pretitle: '', title: 'Bandit Ringleader', posttitle: '',
+			hearts: 2,
+			desc: 'A bandit who hsa survived and thrived.',
+			detail: '',
+			attack: 'Steel Sword',
+			rolls: [
+				['6-4',  'p-'],
+				['3-2',  'p- p-'],
+				['1',  'p- p- p-'],
+			]
+		}, // ---------------------------------------------
+		pirate: {
+			realm: 'opponent',
+			type: 'combat',
+			category: 'meelee?',
+			pretitle: '', title: 'Pirate', posttitle: '',
+			hearts: 3,
+			desc: 'A treacherous sea-rat, hungry for your gold.',
+			detail: '',
+			attack: 'cutlass',
+			rolls: [
+				['5-3',  'p-'],
+				['2',  'p- p-'],
+				['1',  'p- p- p-'],
+			]
+		}, // ---------------------------------------------
+		wizardF: {
+			realm: 'opponent',
+			type: 'combat',
+			category: 'ranged?',
+			pretitle: 'Fire Circle', title: 'Wizard', posttitle: '',
+			hearts: 3,
+			desc: 'A crazed wizard with a blazing light in their eyes.',
+			detail: '',
+			attack: 'fireball',
+			rolls: [
+				['5-3',  'p-'],
+				['2',  'p- p-'],
+				['1',  'p- p- p- p- p-'],
+			]
+		}, // ---------------------------------------------
+		wizardF: {
+			realm: 'opponent',
+			type: 'combat',
+			category: 'ranged?',
+			pretitle: '', title: 'Wolf Pack', posttitle: '',
+			hearts: 3,
+			desc: 'A pack of hungry wolves, willing to fight for their next meal. It\'s hard to avoid their snapping teeth.',
+			detail: '',
+			attack: 'bites',
+			rolls: [
+				['7-4',  'p-'],
+				['3-1',  'p- p-'],
+			]
+		}, // ---------------------------------------------
+		heal1: {
+			realm: 'player',
+			type: 'combat',
+			category: 'any-hand',
+			pretitle: '', title: 'Healing Potion', posttitle: '',
+			hearts: 3,
+			desc: 'A pack of hungry wolves, willing to fight for their next meal. It\'s hard to avoid their snapping teeth.',
+			detail: '',
+			attack: 'bites',
+			rolls: [
+				['7-4',  'p-'],
+				['3-1',  'p- p-'],
 			]
 		}, // ---------------------------------------------
 	}

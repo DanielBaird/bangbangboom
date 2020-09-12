@@ -1,0 +1,131 @@
+<html>
+<head>
+
+<style>
+html {
+	--sqrt3: 1.73205;
+	--side: 200px;
+	--gridc: #eef;
+	background-color: white;
+}
+body {
+	height: 100%;
+	background-image: 
+		linear-gradient(to bottom, var(--gridc), var(--gridc) 1px, #eee0 1px, #eee0),
+		linear-gradient(to right, var(--gridc), var(--gridc) 1px, #eee0 1px, #eee0)
+	;
+	background-size: calc(var(--side)/10) calc(var(--side)/10);
+	background-repeat: repeat;
+	padding: var(--side) 0 0 var(--side);
+	display: flex;
+
+}
+
+/* ----------------------------------------------------- */
+.hex, .hexp {
+	text-align: center;
+}
+/* ----------------------------------------------------- */
+.hex {
+	/* flat top */
+	margin-right: calc(1.5 * var(--side));
+	position: relative;
+	/* background-color: #cccc; */
+	border: 1px solid blue;
+	border-width: 1px 0;
+	height: calc(var(--side) * 2 * var(--sqrt3) / 2);
+	width: calc(var(--side) * 1);
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.hex:before, .hex:after {
+	position: absolute;
+	content: '';
+	border: inherit;
+	left: 0; right: 0;
+	top: 0; bottom: 0;
+}
+.hex:before { transform: rotate(60deg); }
+.hex:after { transform: rotate(-60deg); }
+.hex > * {
+	box-shadow: inset 0 0 5px #f99;
+	margin: 0 calc(var(--side) * -0.2);
+}
+.hex > *:first-child, .hex > *:last-child {
+	margin: 0;
+	height: calc(var(--side) * 0.25);
+}
+/* ----------------------------------------------------- */
+.hexp {
+	/* pointy top */
+	position: relative;
+	/* background-color: #cccc; */
+	border: 1px solid blue;
+	border-width: 0 1px;
+	width: calc(var(--side) * 2 * var(--sqrt3) / 2);
+	height: calc(var(--side) * 1);
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.hexp:before, .hexp:after {
+	position: absolute;
+	content: '';
+	border: inherit;
+	left: 0; right: 0;
+	top: 0; bottom: 0;
+}
+.hexp:before { transform: rotate(60deg); }
+.hexp:after { transform: rotate(-60deg); }
+.hexp > * {
+	box-shadow: inset 0 0 5px #f99;
+	margin: 0;
+}
+.hexp > *:first-child, .hexp > *:last-child {
+	margin: 0 calc(0.25 * var(--side));
+	height: calc(var(--side) * 0.25);
+}
+.hexp > *:first-child {
+	margin-top: calc(-0.25 * var(--side));
+}
+.hexp > *:last-child {
+	margin-bottom: calc(-0.25 * var(--side));
+}
+/* ----------------------------------------------------- */
+
+</style>
+
+</head>
+<body>
+	
+	<div class="hex">
+		<div>top</div>
+		<div>mid a</div>
+		<div>mid b</div>
+		<div>mid c</div>
+		<div>mid d</div>
+		<div>mid e</div>
+		<div>mid f</div>
+		<div>mid g</div>
+		<div>mid h</div>
+		<div>bottom</div>
+	</div>
+	
+	<div class="hexp">
+		<div>top</div>
+		<div>mid a</div>
+		<div>mid b</div>
+		<div>mid c</div>
+		<div>mid d</div>
+		<div>mid e</div>
+		<div>mid f</div>
+		<div>mid g</div>
+		<div>mid h</div>
+		<div>bottom</div>
+	</div>
+	
+</body>
+</html>
