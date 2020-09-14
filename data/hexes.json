@@ -1,0 +1,180 @@
+{
+    "gatemain": {
+        "type": "wall",
+        "pretitle": "", "title": "Main Gate", "posttitle": "",
+        "desc": "Where adventure begins!",
+        "detail": "",
+        "tags": ["peaceful"],
+        "edges": [
+            ["wall", "farmland", "farmland", "wall", "city", "city"]
+        ]
+    },
+    "gate": {
+        "type": "wall",
+        "pretitle": "", "title": "Minor Gate", "posttitle": "",
+        "desc": "Connecting city and countryside",
+        "detail": "",
+        "tags": ["peaceful"],
+        "edges": [
+            ["wall", "farmland", "farmland", "wall", "city", "city"],
+            ["wall", "farmland", "farmland", "wall", "city", "city"]
+        ]
+    },
+    "wallConstruction": {
+        "type": "wall",
+        "pretitle": "", "title": "Wall", "posttitle": "Under Repair",
+        "desc": "This section of City Wall is being broken down and rebuilt.",
+        "detail": "Though heavily guarded, an adventurer like you can sneak across.",
+        "tags": ["peaceful"],
+        "edges": [
+            ["wall", "farmland", "farmland", "wall", "city", "city"]
+        ]
+    },
+    "wallNS": {
+        "type": "wall",
+        "pretitle": "", "title": "City Wall", "posttitle": "",
+        "tags": ["impassable", "peaceful"],
+        "desc": "Tall and imposing, the City's wall stretches as far as you can see.",
+        "detail": "You cannot cross the wall without a special ability or magical item.",
+        "edges": [
+            ["wall", "farmland", "farmland", "wall", "city", "city"],
+            ["wall", "farmland", "farmland", "wall", "city", "city"],
+            ["wall", "farmland", "farmland", "wall", "city", "city"],
+            ["wall", "farmland", "farmland", "wall", "city", "city"],
+            ["wall", "farmland", "farmland", "wall", "city", "city"]
+        ]
+    },
+    "farms": {
+        "type": "farmland",
+        "pretitle": "", "title": "Small Farms", "posttitle": "",
+        "desc": "Friendly farms dot the open countryside.",
+        "tags": ["peaceful"],
+        "edges": [
+            ["farmland", "farmland", "farmland", "farmland", "farmland", "farmland"],
+            ["farmland", "farmland", "farmland", "farmland", "farmland", "farmland"],
+            ["farmland", "farmland", "farmland", "farmland", "farmland", "farmland"],
+            ["farmland", "plains",   "farmland", "farmland", "farmland", "farmland"],
+            ["farmland", "farmland", "plains",   "farmland", "farmland", "farmland"],
+            ["farmland", "plains",   "plains",   "farmland", "farmland", "farmland"]
+        ]
+    },
+    "farmlarge": {
+        "type": "farmland",
+        "pretitle": "", "title": "Farm", "posttitle": "",
+        "desc": "A farmhouse overlooks a broad expanse of fields.",
+        "tags": ["peaceful"],
+        "edges": [
+            ["farmland", "farmland", "farmland", "farmland", "farmland", "farmland"],
+            ["farmland", "plains",   "farmland", "farmland", "farmland", "farmland"],
+            ["farmland", "farmland", "plains",   "farmland", "farmland", "farmland"],
+            ["farmland", "plains",   "plains",   "farmland", "farmland", "farmland"]
+        ]
+    },
+    "farmlake": {
+        "type": "farmland",
+        "pretitle": "", "title": "Peaceful Lake", "posttitle": "",
+        "desc": "A picturesque lake surrounded by fields.",
+        "tags": ["peaceful", "water"],
+        "edges": [
+            ["farmland", "farmland", "farmland", "farmland", "farmland", "farmland"],
+            ["farmland", "plains", "farmland", "farmland", "farmland", "farmland"],
+            ["farmland", "farmland", "plains", "farmland", "farmland", "farmland"]
+        ]
+    },
+    "farmgrove": {
+        "type": "farmland",
+        "pretitle": "", "title": "Grove", "posttitle": "",
+        "desc": "A grove of trees.",
+        "tags": ["peaceful", "wooded"],
+        "edges": [
+            ["farmland", "farmland", "farmland", "farmland", "farmland", "farmland"]
+        ]
+    },
+    "farminn": {
+        "type": "farmland",
+        "pretitle": "", "title": "Farmer's Inn", "posttitle": "",
+        "desc": "A meetingplace for local workers.",
+        "detail": "You can rest here and restore 1 heart",
+        "tags": ["peaceful", "shelter"],
+        "edges": [
+            ["farmland", "farmland", "farmland", "farmland", "farmland", "farmland"],
+            ["farmland", "plains",   "farmland", "farmland", "farmland", "farmland"],
+            ["farmland", "farmland", "plains",   "farmland", "farmland", "farmland"]
+        ]
+    },
+    "plains": {
+        "type": "plains",
+        "pretitle": "", "title": "Open Plain", "posttitle": "",
+        "desc": "Untamed land overgrown with wild grasses.",
+        "tags": [],
+        "edges": [
+            ["plains", "plains", "plains", "plains", "plains", "plains"],
+            ["plains", "plains", "plains", "plains", "plains", "plains"],
+            ["plains", "plains", "plains", "plains", "plains", "plains"],
+            ["plains", "plains", "plains", "plains", "plains", "plains"],
+            ["plains", "plains", "plains", "plains", "plains", "plains"]
+        ]
+    },
+    "plainsfarm": {
+        "type": "plains",
+        "pretitle": "", "title": "Remote Farm", "posttitle": "",
+        "desc": "A brave farmer survives in the wilderness.",
+        "tags": [],
+        "edges": [
+            ["plains", "plains", "plains", "plains", "plains", "plains"],
+            ["plains", "plains", "plains", "plains", "plains", "plains"]
+        ]
+    },
+    "plainsinn": {
+        "type": "plains",
+        "pretitle": "", "title": "Traveller's Inn", "posttitle": "",
+        "desc": "A respite for weary travellers.",
+        "detail": "You can rest here and restore 1 heart",
+        "tags": ["peaceful", "shelter"],
+        "edges": [
+            ["plains", "plains", "plains", "plains", "plains", "plains"],
+            ["plains", "plains", "plains", "plains", "plains", "plains"]
+        ]
+    },
+    "plainsmarsh": {
+        "type": "plains",
+        "pretitle": "", "title": "Marsh", "posttitle": "",
+        "desc": "A mosquito-ridden marsh, dismal and wet.",
+        "tags": ["water"],
+        "edges": [
+            ["plains", "plains", "plains", "plains", "plains", "plains"],
+            ["plains", "plains", "plains", "plains", "plains", "plains"]
+        ]
+    },
+    "citytavern": {
+        "type": "city",
+        "pretitle": "", "title": "Run-down Tavern", "posttitle": "",
+        "desc": "A dilapidated tavern with a faded, unreadable sign",
+        "detail": "If you survive your encounter here, you can rest and restore 1 heart",
+        "tags": ["shelter"],
+        "edges": [
+            ["city", "city", "city", "city", "city", "city"],
+            ["city", "city", "city", "city", "city", "city"]
+        ]
+    },
+    "cityalleys": {
+        "type": "city",
+        "pretitle": "", "title": "Back Alleys", "posttitle": "",
+        "desc": "Twisted alleys filled with shadows and danger.",
+        "tags": [],
+        "edges": [
+            ["city", "city", "city", "city", "city", "city"],
+            ["city", "city", "city", "city", "city", "city"]
+        ]
+    },
+    "armourer": {
+        "type": "city",
+        "pretitle": "", "title": "Armourer", "posttitle": "",
+        "desc": "A large smithy producing weapons and armour.",
+        "tags": [],
+        "edges": [
+            ["city", "city", "city", "city", "city", "city"],
+            ["city", "city", "city", "city", "city", "city"]
+        ]
+    }
+}

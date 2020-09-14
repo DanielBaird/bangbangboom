@@ -164,14 +164,14 @@ i:after {
 }
 i.bar:after {
 	background-image: linear-gradient(135deg,
-	rgba(255,255,255, 0) 46%,
-	rgba(255,255,255, 1) 46%,
-	rgba(255,255,255, 1) 49%,
+	rgba(255,255,255, 0) 44%,
+	rgba(255,255,255, 1) 44%,
+	rgba(255,255,255, 1) 47%,
+	rgba(0,0,0, 1) 47%,
 	rgba(0,0,0, 1) 49%,
 	rgba(0,0,0, 1) 51%,
-	rgba(0,0,0, 1) 53%,
-	rgba(0,0,0, 0) 53%
-	); 
+	rgba(0,0,0, 0) 51%
+	);
 }
 i.shield:after {
 	top: -0.2em;
@@ -193,7 +193,7 @@ i.add:after {
 	background-size: 45% 40%;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-image: 
+	background-image:
 		linear-gradient(0deg,
 			rgba(255,210,0, 0) 33%,
 			rgba(255,210,0, 1) 33%,
@@ -206,5 +206,5 @@ i.add:after {
 			rgba(255,210,0, 1) 66%,
 			rgba(255,210,0, 0) 66%
 		)
-	; 
+	;
 }

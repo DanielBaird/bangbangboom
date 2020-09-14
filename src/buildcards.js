@@ -2,11 +2,11 @@
 
 const fs = require('fs')
 const { strict } = require('assert')
-const log = require('./log')
+const { log, mention } = require('./log')
 
 // --------------------------------------------------------
 // --------------------------------------------------------
-module.exports = (cardsData, file, options) => {
+module.exports = (cardsData, file, options={}) => {
     // build into this list of lines
     cardsPage = []
 
@@ -16,7 +16,7 @@ module.exports = (cardsData, file, options) => {
     // then add all the cards
     for (section in cardsData) {
         const sectionList = cardsData[section]
-        log(`building ${Object.keys(sectionList).length} ${section} cards...`)
+        log(`building ${Object.keys(sectionList).length + 1} ${section} cards: `)
         cardsPage = cardsPage.concat(buildTitleCard(section))
         for (cardId in sectionList) {
             // got a card, build it
@@ -34,9 +34,9 @@ module.exports = (cardsData, file, options) => {
 }
 // --------------------------------------------------------
 function buildTitleCard(title) {
-	log(`building title card for ${title}`, 1)
+	mention(`Title card`, 1)
 	let cardLines = []
-	cardLines = cardLines.concat(getCardSection('head'))	
+	cardLines = cardLines.concat(getCardSection('head'))
 	cardLines = cardLines.concat(bigTitle(title))
 	cardLines = cardLines.concat(getCardSection('foot'))
 
@@ -44,11 +44,11 @@ function buildTitleCard(title) {
 }
 // --------------------------------------------------------
 function buildCard(card, id) {
-	log(`building ${card.title || id}`, 2)
+	mention(` / ${card.title || id}`, 2)
 
 	let cardLines = []
 	cardLines = cardLines.concat(getCardSection('head'))
-	
+
 	cardLines = cardLines.concat(cardTitle(card))
 	cardLines = cardLines.concat(cardHealth(card))
 	cardLines = cardLines.concat(cardDescription(card))
@@ -99,7 +99,7 @@ function cardEffect(card) {
 function cardDescription(card) {
 	if (card.desc) {
 		return cardRow([`<p>${card.desc}</p>`], 'description')
-	} else { 
+	} else {
 		return []
 	}
 }
@@ -107,7 +107,7 @@ function cardDescription(card) {
 function cardDetail(card) {
 	if (card.detail) {
 		return cardRow([`<p>${card.detail}</p>`], 'detail')
-	} else { 
+	} else {
 		return []
 	}
 }
@@ -135,7 +135,7 @@ function cardOutcomes(card) {
 		})
 		lines.push('</table>')
 		return cardRow(lines, 'outcomes')
-	} else { 
+	} else {
 		return []
 	}
 }
@@ -166,7 +166,7 @@ function hearts(pattern, repeat=1) {
 }
 // --------------------------------------------------------
 // --------------------------------------------------------
-function getPageSection(section) { 
+function getPageSection(section) {
 	return {
 		head: [
 			'<html>',
@@ -188,7 +188,7 @@ function getPageSection(section) {
 	}[section]
 }
 // --------------------------------------------------------
-function getCardSection(section) { 
+function getCardSection(section) {
 	return {
 		head: [ '<div class="card">' ],
 		foot: [ '</div>' ]
@@ -204,4 +204,3 @@ function cardRow(content, classes='') {
 	return row
 }
 // --------------------------------------------------------
-

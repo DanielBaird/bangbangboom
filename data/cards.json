@@ -275,7 +275,7 @@
             "type": "combat",
             "category": "off-hand",
             "pretitle": "", "title": "Steel Shield", "posttitle": "",
-            "effect": "ps ps ps",
+            "effect": "ps ps",
             "desc": "A light, strong shield of hammered steel.",
             "detail": "Take two less hearts of damage, unless you roll a 1."
         },
