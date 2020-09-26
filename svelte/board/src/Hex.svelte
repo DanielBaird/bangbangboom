@@ -1,57 +1,10 @@
-:root {
-	--sqrt3: 1.73205;
-	--side: 33mm;
-	--gutter: 5mm;
-	--endsize: 1.5; /* gutter * this = height of header and footer */
-	--sidec: #999;
-	--insidec: #eee;
-	--grids: calc(var(--side)/4);
-	--gridc: #e3e3e3;
-}
-/* ----------------------------------------------------- */
-/* this stuff is here at the top because css vars don't
-   work in media queries, so you gotta update all the
-   mm measurements here when you change --side above.    */
-@media                                    (max-width: calc( 6.5 * 33mm)) { .wrapper { max-width: calc( 3.5 * var(--side)); } }
-@media (min-width: calc( 6.5 * 33mm)) and (max-width: calc( 9.5 * 33mm)) { .wrapper { max-width: calc( 6.5 * var(--side)); } }
-@media (min-width: calc( 9.5 * 33mm)) and (max-width: calc(12.5 * 33mm)) { .wrapper { max-width: calc( 9.5 * var(--side)); } }
-@media (min-width: calc(12.5 * 33mm)) and (max-width: calc(15.5 * 33mm)) { .wrapper { max-width: calc(12.5 * var(--side)); } }
-@media (min-width: calc(15.5 * 33mm)) and (max-width: calc(18.5 * 33mm)) { .wrapper { max-width: calc(15.5 * var(--side)); } }
-@media (min-width: calc(18.5 * 33mm)) and (max-width: calc(21.5 * 33mm)) { .wrapper { max-width: calc(18.5 * var(--side)); } }
-/* ----------------------------------------------------- */
+<script>
 
-* { box-sizing: inherit; }
-html { box-sizing: border-box; }
-body {
-	font-family: 'PT Sans Narrow';
-	margin: 0;
-	padding: var(--gutter) 0 var(--side);
-	font-size: calc(5/7 * var(--gutter));
-    min-height: 100%;
-    line-height: 1.1;
-	background-color: #eee;
-	background-image:
-		linear-gradient(to bottom, var(--gridc), var(--gridc) 1px, #0000 1px, #0000),
-		linear-gradient(to right, var(--gridc), var(--gridc) 1px, #0000 1px, #0000)
-	;
-	background-size: var(--grids) var(--grids);
-	background-repeat: repeat;
-}
-body:after {
-	content: '';
-	clear: both;
-	display: table;
-}
-p {
-    margin: 0;
-    padding: 0;
-}
-.wrapper {
-	margin: 0 auto;
-}
+</script>
+
+<style>
 .hex {
-	/* flat top */
-	/* float: left; */
+    box-sizing: border-box;
 	text-align: center;
 	margin: 0 calc( (1/2 * var(--side)));
 	position: relative;
@@ -74,19 +27,6 @@ p {
 		calc(1/2 * var(--side))    calc(var(--side) * 2 * var(--sqrt3) / 2),
 		calc(0/2 * var(--side))    calc(var(--side) * 2 * var(--sqrt3) / 2 / 2)
 	);
-}
-.hex:nth-of-type(2n) {
-	position: relative;
-	top: calc(var(--side) * 2 * var(--sqrt3) / 2 /2);
-	/* margin-top: calc(var(--side) * 2 * var(--sqrt3) / 2 /2); */
-	/* shape-outside: polygon(
-		calc(1/2 * var(--side))    calc(1/2 * var(--side) * 2 * var(--sqrt3) / 2),
-		calc(3/2 * var(--side))    calc(1/2 * var(--side) * 2 * var(--sqrt3) / 2),
-		calc(4/2 * var(--side))    calc(2/2 * var(--side) * 2 * var(--sqrt3) / 2),
-		calc(3/2 * var(--side))    calc(3/2 * var(--side) * 2 * var(--sqrt3) / 2),
-		calc(1/2 * var(--side))    calc(3/2 * var(--side) * 2 * var(--sqrt3) / 2),
-		calc(0/2 * var(--side))    calc(2/2 * var(--side) * 2 * var(--sqrt3) / 2)
-	); */
 }
 .hex:before, .hex:after {
 	box-sizing: border-box;
@@ -181,3 +121,5 @@ p {
 .hex .hexedge.s  { transform: rotate(180deg); }
 .hex .hexedge.sw { transform: rotate(240deg); }
 .hex .hexedge.nw { transform: rotate(300deg); }
+
+</style>

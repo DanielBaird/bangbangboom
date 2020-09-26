@@ -1,21 +1,19 @@
-#! /usr/bin/env node
 
 const fs = require('fs')
-const { strict } = require('assert')
 const { log, mention } = require('./log')
 
 // --------------------------------------------------------
 // --------------------------------------------------------
-module.exports = (hexData, file, options={}) => {
+function makeHexes(hexData, file, options={}) {
 	// build into this list of lines
-	hexesPage = []
+	let hexesPage = []
 
 	// page starts with the head
 	hexesPage = hexesPage.concat( getPageSection('head') )
 
 	log(`Building ${Object.keys(hexData).length} types of hexes...`)
 	// then add all the hexes
-	for (hexId in hexData) {
+	for (let hexId in hexData) {
 		// got a hex, build it
 		let hex = hexData[hexId]
 		if (options.single) {
@@ -43,24 +41,33 @@ function buildHex(hex, id) {
 
 	hex.edges.forEach( (edgeList, index) => {
 		hexLines = hexLines.concat(getHexSection('head'))
-
-		hexLines = hexLines.concat(hexTitle(hex))
-		hexLines = hexLines.concat(hexEdges(edgeList, hex))
-		hexLines = hexLines.concat(hexDescription(hex))
-		hexLines = hexLines.concat(hexDetail(hex))
-		hexLines = hexLines.concat(hexFooter(hex))
-
+		hexLines = hexLines.concat(hexBody(hex, edgeList))
 		hexLines = hexLines.concat(getHexSection('foot'))
-
 		if (index > 0)  {  mention('.')  }
 	})
 
 	return hexLines
 }
 // --------------------------------------------------------
+function hexBody(hex, edgeList) {
+
+	let bodyLines = []
+
+	if (hex.type === 'blank') {
+		bodyLines = bodyLines.concat(hexEdges(hex.edges[0], hex))
+	} else {
+		bodyLines = bodyLines.concat(hexTitle(hex))
+		bodyLines = bodyLines.concat(hexEdges(edgeList, hex))
+		bodyLines = bodyLines.concat(hexDescription(hex))
+		bodyLines = bodyLines.concat(hexDetail(hex))
+		bodyLines = bodyLines.concat(hexFooter(hex))
+	}
+	return bodyLines
+}
+// --------------------------------------------------------
 // --------------------------------------------------------
 function hexTitle(hex) {
-	lines = []
+	let lines = []
 	if (hex.pretitle) {
 		lines.push(`<small>${hex.pretitle}</small>`)
 	}
@@ -101,7 +108,7 @@ function hexDetail(hex) {
 }
 // --------------------------------------------------------
 function hexFooter(hex) {
-	lines = []
+	let lines = []
 	if (hex.tags) {
 		lines.push('<p>')
 		lines.push(hex.tags.join(' · '))
@@ -155,11 +162,17 @@ function hexRow(content, classes='') {
 function hexEdge(content, classes='') {
 	let edge = []
 	edge.push(`<div class="hexedge ${classes}">`)
-	edge = edge.concat('<span class="edgearrow">⬆</span>')
-	edge = edge.concat(content)
-	// edge = edge.concat('⭡')
+	if (content.length > 0) {
+		edge = edge.concat('<span class="edgearrow">⬆</span>')
+		edge = edge.concat(content)
+		// edge = edge.concat('⭡')
+	}
 	edge.push('</div>')
 
 	return edge
 }
+// --------------------------------------------------------
+// --------------------------------------------------------
+exports.makeHexes = makeHexes
+exports.hexBody = hexBody
 // --------------------------------------------------------

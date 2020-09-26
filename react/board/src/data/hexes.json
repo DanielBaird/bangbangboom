@@ -1,5 +1,11 @@
 {
+    "blank": {
+        "id": "blank",
+        "type": "blank",
+        "edges": [["", "", "", "", "", ""]]
+    },
     "start": {
+        "id": "start",
         "type": "start",
         "pretitle": "", "title": "Main Gate", "posttitle": "",
         "desc": "Where adventure begins!",
@@ -10,6 +16,7 @@
         ]
     },
     "gate": {
+        "id": "gate",
         "type": "wall",
         "pretitle": "", "title": "Minor Gate", "posttitle": "",
         "desc": "Connecting city and countryside",
@@ -21,6 +28,7 @@
         ]
     },
     "wallConstruction": {
+        "id": "wallConstruction",
         "type": "wall",
         "pretitle": "", "title": "Wall", "posttitle": "Under Repair",
         "desc": "This section of City Wall is being broken down and rebuilt.",
@@ -31,6 +39,7 @@
         ]
     },
     "wallNS": {
+        "id": "wallNS",
         "type": "wall",
         "pretitle": "", "title": "City Wall", "posttitle": "",
         "tags": ["impassable", "peaceful"],
@@ -45,6 +54,7 @@
         ]
     },
     "farms": {
+        "id": "farms",
         "type": "farmland",
         "pretitle": "", "title": "Small Farms", "posttitle": "",
         "desc": "Friendly farms dot the open countryside.",
@@ -59,6 +69,7 @@
         ]
     },
     "farmlarge": {
+        "id": "farmlarge",
         "type": "farmland",
         "pretitle": "", "title": "Farm", "posttitle": "",
         "desc": "A farmhouse overlooks a broad expanse of fields.",
@@ -71,6 +82,7 @@
         ]
     },
     "farmlake": {
+        "id": "farmlake",
         "type": "farmland",
         "pretitle": "", "title": "Peaceful Lake", "posttitle": "",
         "desc": "A picturesque lake surrounded by fields.",
@@ -82,6 +94,7 @@
         ]
     },
     "farmgrove": {
+        "id": "farmgrove",
         "type": "farmland",
         "pretitle": "", "title": "Grove", "posttitle": "",
         "desc": "A grove of trees.",
@@ -91,6 +104,7 @@
         ]
     },
     "farminn": {
+        "id": "farminn",
         "type": "farmland",
         "pretitle": "", "title": "Farmer's Inn", "posttitle": "",
         "desc": "A meetingplace for local workers.",
@@ -103,6 +117,7 @@
         ]
     },
     "plains": {
+        "id": "plains",
         "type": "plains",
         "pretitle": "", "title": "Open Plain", "posttitle": "",
         "desc": "Untamed land overgrown with wild grasses.",
@@ -116,6 +131,7 @@
         ]
     },
     "plainsfarm": {
+        "id": "plainsfarm",
         "type": "plains",
         "pretitle": "", "title": "Remote Farm", "posttitle": "",
         "desc": "A brave farmer survives in the wilderness.",
@@ -126,6 +142,7 @@
         ]
     },
     "plainsinn": {
+        "id": "plainsinn",
         "type": "plains",
         "pretitle": "", "title": "Traveller's Inn", "posttitle": "",
         "desc": "A respite for weary travellers.",
@@ -137,6 +154,7 @@
         ]
     },
     "plainsmarsh": {
+        "id": "plainsmarsh",
         "type": "plains",
         "pretitle": "", "title": "Marsh", "posttitle": "",
         "desc": "A mosquito-ridden marsh, dismal and wet.",
@@ -147,6 +165,7 @@
         ]
     },
     "citytavern": {
+        "id": "citytavern",
         "type": "city",
         "pretitle": "", "title": "Run-down Tavern", "posttitle": "",
         "desc": "A dilapidated tavern with a faded, unreadable sign",
@@ -158,6 +177,7 @@
         ]
     },
     "cityalleys": {
+        "id": "cityalleys",
         "type": "city",
         "pretitle": "", "title": "Back Alleys", "posttitle": "",
         "desc": "Twisted alleys filled with shadows and danger.",
@@ -168,6 +188,7 @@
         ]
     },
     "armourer": {
+        "id": "armourer",
         "type": "city",
         "pretitle": "", "title": "Armourer", "posttitle": "",
         "desc": "A large smithy producing weapons and armour.",

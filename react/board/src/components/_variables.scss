@@ -1,0 +1,37 @@
+
+$sqrt3: 1.73205;
+$side: 120px;
+$gutter: 17px;
+$endsize: 1.5; /* gutter * this = height of header and footer */
+$sidec: #999;
+$insidec: #eee;
+$grids: ($side / 4);
+$gridc: #e3e3e3;
+$basefont: ($side * 11/100);
+
+// hex colours
+$hcbg: #fff; // bg
+$hcwl: #ddd; // wall light
+$hcwd: #bbb; // wall dark
+$hcfl: #afb; // farm light
+$hcfd: #6e9; // farm dark
+$hcll: #8df; // lake light
+
+// selection and hover colours
+$selectedc: #ffff00;
+$hoverc: #ffffcc;
+$selhoverc: #ffee00;
+
+$boardc: #eeeee8;
+
+:export {
+	sqrt3: $sqrt3;
+	side: $side;
+	gutter: $gutter;
+	endsize: $endsize;
+	sidec: $sidec;
+	insidec: $insidec;
+	grids: $grids;
+	gridc: $gridc;
+	basefont: $basefont;
+}
