@@ -4,6 +4,13 @@
         "type": "blank",
         "edges": [["", "", "", "", "", ""]]
     },
+    "impassable": {
+        "id": "impassable",
+        "type": "impassable",
+        "pretitle": "", "title": "Impassable", "posttitle": "",
+        "desc": "You cannot travel here.",
+        "edges": [["", "", "", "", "", ""]]
+    },
     "start": {
         "id": "start",
         "type": "start",
@@ -167,7 +174,7 @@
     "citytavern": {
         "id": "citytavern",
         "type": "city",
-        "pretitle": "", "title": "Run-down Tavern", "posttitle": "",
+        "pretitle": "Run-down", "title": "Tavern", "posttitle": "",
         "desc": "A dilapidated tavern with a faded, unreadable sign",
         "detail": "If you survive your encounter here, you can rest and restore 1 heart",
         "tags": ["shelter"],

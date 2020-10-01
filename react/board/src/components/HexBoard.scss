@@ -1,27 +1,22 @@
 
 @import './_variables';
 
-.hexboard {
-	// margin: ($side / 2);
-	box-sizing: border-box;
-	overflow: hidden;
-	position: relative;
-	height: 100vh;
-	// border: solid $boardc;
-	// border-width: ($side/4);
-	background: transparent;
-
-	border-color: pink;
-}
-.hexboard:before {
-	content: '';
+.scrollwrapper {
 	position: absolute;
-	top:0; right:0; bottom:0; left:0;
-	background-color: $boardc;
-	z-index: -2;
+	top: 0; right: 0; bottom: 0; left: 0;
+	overflow: scroll;
+	background-color: transparent;
+}
+.hexboard {
+	// size is set in js
+	box-sizing: border-box;
+	position: relative;
+	background: transparent;
 }
 .hexboard:after {
-	content: '';
-	display: table;
-	clear: both;
+content: '';
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	background-color: $boardc;
+	z-index: -2;
 }

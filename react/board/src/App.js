@@ -4,7 +4,7 @@ import * as Honeycomb from 'honeycomb-grid'
 
 import './App.css'
 import HexBoard from './components/HexBoard'
-import { getHexByType } from './components/Hex'
+import { getHexByType } from './libraries/hexPool'
 import variables from './components/_variables.scss'
 
 const side = parseInt(variables.side, 10)
@@ -18,17 +18,6 @@ function App() {
 	const [loc, setLoc] = useState(startLoc)
 
 	useEffect( ()=>{
-		// let hcg = Grid(
-		// 	Hex(startLoc.x, startLoc.y, {data: getHexByType('start')}),
-		// 	Hex(startLoc.x-1, startLoc.y, {data: getHexByType('blank')}),
-		// 	Hex(startLoc.x+1, startLoc.y, {data: getHexByType('blank')}),
-		// 	Hex(startLoc.x, startLoc.y-1, {data: getHexByType('blank')}),
-		// 	Hex(startLoc.x, startLoc.y+1, {data: getHexByType('blank')}),
-		// 	Hex(startLoc.x-1, startLoc.y-1, {data: getHexByType('blank')}),
-		// 	Hex(startLoc.x-1, startLoc.y+1, {data: getHexByType('blank')}),
-		// 	Hex(startLoc.x+1, startLoc.y-1, {data: getHexByType('blank')}),
-		// 	Hex(startLoc.x+1, startLoc.y+1, {data: getHexByType('blank')}),
-		// )
 		let hcg = Grid.rectangle({
 			width: startLoc.x * 2, height: startLoc.y * 2,
 			onCreate: (h) => { h.data = h.data || getHexByType('blank') }
@@ -51,9 +40,11 @@ function App() {
 
 		if (clickedH.data.type === 'blank') {
 			// if it's a blank, we need to fill it in
-			const edgeType = currH.data.edgeList[destDir]
+			let edgeType = currH.data.edgeList[destDir]
+			if (hexPos.x === startLoc.x) {
+				edgeType = 'wall'
+			}
 			const newHex = Hex(hexPos.x, hexPos.y, {data: getHexByType(edgeType)})
-			console.log(newHex)
 			hcg.set([hexPos.x, hexPos.y], newHex )
 			setHcg(hcg)
 		}
