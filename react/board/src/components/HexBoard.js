@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 
 import './HexBoard.scss'
 import variables from './_variables.scss'
@@ -10,15 +10,14 @@ export default function HexBoard({grid, loc, clickHex}) {
 
 	const side = parseInt(variables.side, 10)
 	const offset = {x: -1 * side, y: -1/2 * side}
-	const [hexes, setHexes] = useState([])
 
 	useEffect( ()=>{
 		let sw = document.querySelector('.scrollwrapper')
 		let sh = document.querySelector('.hex.selected')
 		if (sw && sh) {
 			// sh.scrollIntoView({behavior: 'smooth'})
- 			console.log(sh.offsetTop - (sw.clientHeight / 2))
-			console.log(sh.offsetLeft - (sw.clientWidth / 2))
+ 			// console.log(sh.offsetTop - (sw.clientHeight / 2))
+			// console.log(sh.offsetLeft - (sw.clientWidth / 2))
 			sw.scroll({
 				top: sh.offsetTop - (sw.clientHeight / 2) + (sh.clientHeight / 2),
 				left: sh.offsetLeft - (sw.clientWidth / 2) + (sh.clientWidth / 2),

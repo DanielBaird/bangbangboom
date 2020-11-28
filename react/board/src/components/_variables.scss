@@ -2,10 +2,11 @@
 $sqrt3: 1.73205;
 $side: 130px;
 $gutter: 17px;
-$endsize: 1.5; /* gutter * this = height of header and footer */
+$endsize: 1.5; // gutter * this = height of header and footer
 $grids: ($side / 4);
 $basefont: ($side * 10/100);
 
+// --------------------------------------------------------
 // board and grid colours
 $gridc: #e3e3e3;
 $sidec: #eef;
@@ -18,8 +19,10 @@ $selectedc: #ffff00;
 $hoverc: #ffffcc;
 $selhoverc: #ffee00;
 
-
+// --------------------------------------------------------
 // hex colours
+$t: transparent; // i'm a lazy typist
+
 $hcbg: #fff; // bg
 $hcwl: #ddd; // wall light
 $hcwd: #bbb; // wall dark
@@ -29,11 +32,20 @@ $hcll: #8df; // lake light
 
 $hcstl: #e9dccc; // stone light
 $hcstd: #ca8; // stone dark
+$hcww: #ffe; // whitewash
 $hcth: #fe9; // thatch
-$hcwwl: #410; // wood light
-$hcwwd: #610; // wood dark
+$hcwwl: #db9; // wood light
+$hcwwd: #b53; // wood dark
 
+// --------------------------------------------------------
+// in the box showing how many hexes are left...
+$stackitemwidth: $gutter * 2; // how wide is an item?
+$stackitemthickness: 2px; // how thick is a single item?
+$stackitemgap: 2px; /// how far between?
+$stackitemc: $boardc;
 
+// --------------------------------------------------------
+// exported stuff is available to js
 :export {
 	sqrt3: $sqrt3;
 	side: $side;

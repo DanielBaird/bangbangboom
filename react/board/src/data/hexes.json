@@ -7,8 +7,8 @@
     "impassable": {
         "id": "impassable",
         "type": "impassable",
-        "pretitle": "", "title": "Impassable", "posttitle": "",
-        "desc": "You cannot travel here.",
+        "pretitle": "", "title": "Nope", "posttitle": "",
+        "desc": "You ran out of map hexagons so you can't travel here.",
         "edges": [["", "", "", "", "", ""]]
     },
     "start": {

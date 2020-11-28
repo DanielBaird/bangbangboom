@@ -58,8 +58,8 @@ function hexBody(hex, edgeList) {
 	} else {
 		bodyLines = bodyLines.concat(hexTitle(hex))
 		bodyLines = bodyLines.concat(hexEdges(edgeList, hex))
-		// bodyLines = bodyLines.concat(hexDescription(hex))
-		// bodyLines = bodyLines.concat(hexDetail(hex))
+		bodyLines = bodyLines.concat(hexDescription(hex))
+		bodyLines = bodyLines.concat(hexDetail(hex))
 		bodyLines = bodyLines.concat(hexFooter(hex))
 	}
 	return bodyLines

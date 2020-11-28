@@ -5,6 +5,7 @@ import hexData from '../data/hexes.json'
 const fallbacks = {
 	'farmland': 'plains'
 }
+const systemTypes = ['blank','impassable','start']
 
 let hexes = {}
 
@@ -18,7 +19,6 @@ Object.entries(hexData).forEach( ([id, h])=> {
 		let newH = {...h}
 		newH.edgeList = e
 		hexes[h.type].push(newH)
-		console.log(`added a ${h.type} hex`)
 	})
     // hexes[h.type][id] = h
 })
@@ -46,8 +46,6 @@ export function getHexByTypeNoFallback(type) {
         return hexes[type][0]
 	} else if (hexes[type] && hexes[type].length) {
 		const randomHex = ~~(Math.random() * hexes[type].length)
-		console.log(hexes[type])
-		console.log(randomHex)
         return hexes[type].splice(randomHex, 1)[0]
     } else {
 		console.log(`ran out of ${type}`)
@@ -57,5 +55,24 @@ export function getHexByTypeNoFallback(type) {
 // --------------------------------------------------------
 export function hexToHtml(hex) {
     return hexBody(hex, hex.edgeList).join('\n')
+}
+// --------------------------------------------------------
+export function hexStatuses(includeSystem=false) {
+	const types = Object.keys(hexes).filter((t) => {
+		return (includeSystem || !systemTypes.includes(t))
+	})
+	// const result = types( (partialRes, type) => {
+	// 	partialRes[type] = hexes[type].length
+	// 	return partialRes
+	// }, {})
+	const result = types.map( (t) => {
+		return {
+			type: t,
+			remaining: hexes[t].length,
+			fallback: fallbacks[t]
+		}
+	})
+	return result
+
 }
 // --------------------------------------------------------

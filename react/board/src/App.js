@@ -1,21 +1,23 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useReducer } from 'react'
 
 import * as Honeycomb from 'honeycomb-grid'
 
 import './App.css'
 import HexBoard from './components/HexBoard'
-import { getHexByType } from './libraries/hexPool'
+import HexStacks from './components/HexStacks'
+import { getHexByType, hexStatuses } from './libraries/hexPool'
 import variables from './components/_variables.scss'
 
-const side = parseInt(variables.side, 10)
+const side = parseInt(variables.side, 10) // size of a hex
+const startLoc = {x:20, y:20} // starting location
 const Hex = Honeycomb.extendHex({size: side, orientation: 'flat'})
 const Grid = Honeycomb.defineGrid(Hex)
 
 function App() {
-	const startLoc = {x:10, y:10}
 
 	const [hcg, setHcg] = useState(null)
 	const [loc, setLoc] = useState(startLoc)
+	const [_, forceUpdate] = useReducer((x) => x+1, 0) // sadly this is required
 
 	useEffect( ()=>{
 		let hcg = Grid.rectangle({
@@ -24,7 +26,7 @@ function App() {
 		})
 		hcg.set([startLoc.x, startLoc.y], Hex(startLoc.x, startLoc.y, {data: getHexByType('start')}))
 		setHcg( hcg )
-	}, [startLoc.x, startLoc.y])
+	}, [])
 
 	function clickHex(hexPos) {
 		let currH = hcg.get(loc)
@@ -38,23 +40,33 @@ function App() {
 
 		if (destDir < 0) { return } // bail if it's not adjacent
 
+		let newHex = null
 		if (clickedH.data.type === 'blank') {
 			// if it's a blank, we need to fill it in
 			let edgeType = currH.data.edgeList[destDir]
 			if (hexPos.x === startLoc.x) {
 				edgeType = 'wall'
 			}
-			const newHex = Hex(hexPos.x, hexPos.y, {data: getHexByType(edgeType)})
+			newHex = Hex(hexPos.x, hexPos.y, {data: getHexByType(edgeType)})
 			hcg.set([hexPos.x, hexPos.y], newHex )
+			console.log('newhex is ' + newHex.data.type)
 			setHcg(hcg)
+			clickedH = newHex
+			console.log('clicked hex ' + clickedH.data.type)
 		}
 		// either way set a new location
-		setLoc(hexPos)
+		console.log(clickedH.data.type)
+		if (clickedH.data.type !== 'impassable') {
+			setLoc(hexPos)
+		} else {
+			forceUpdate() // gotta do this
+		}
 	}
 
-	return (
+	return (<>
+		<HexStacks statuses={hexStatuses()} />
 		<HexBoard grid={hcg} loc={loc} clickHex={clickHex} />
-	)
+	</>)
 }
 
 export default App

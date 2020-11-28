@@ -1,0 +1,58 @@
+
+@import './_variables';
+
+.hexstacks {
+	position: absolute;
+	z-index: 10;
+	font-size: $basefont;
+	top: $gutter/2; left: $gutter/2;
+	border: 1px solid $gridc;
+	padding: $gutter $gutter/2;
+	box-shadow: 0 $gutter/4 $gutter/2 $gridc;
+	background: rgba($hcbg, 0.5);
+	backdrop-filter: blur(0.25em);
+
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+
+}
+
+.hexstacks .stack {
+	margin: 0 $stackitemwidth/4;
+	width: $stackitemwidth;
+}
+
+.hexstacks .stacktitle {
+	margin: 0 -1em;
+	height: 1em;
+	font-size: 90%;
+	text-align: center;
+}
+
+.hexstacks .stackgraph {
+	position: relative;
+}
+
+.hexstacks .stackcount {
+	$width: 2.5em;
+	$height: 1.5em;
+	position: absolute;
+	bottom: $stackitemthickness;
+	left: 50%;
+	margin-left: $width/-2;
+	width: $width;
+	height: $height;
+	line-height: $height * 1.03; // numbers don't have descenders, adjusting down a smidge
+	text-align: center;
+	// text-shadow: -1px 0 0 $hcbg, 1px 0 0 $hcbg, 0 -1px 0 $hcbg, 0 1px 0 $hcbg, 0 0 2px $hcbg, 0 0 3px $hcbg, 0 0 4px $hcbg;
+	// background: rgba($hcbg, 0.66);
+	background-image: radial-gradient(closest-side, $hcbg 20%, rgba($hcbg, 0.8) 60%, rgba($hcbg, 0) 80%);
+}
+
+.hexstacks .stacklayer {
+	height: $stackitemthickness;
+	width: 100%;
+	background-color: $stackitemc;
+	margin: $stackitemgap auto 0;
+}
