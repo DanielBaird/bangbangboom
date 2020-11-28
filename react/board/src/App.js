@@ -17,8 +17,10 @@ function App() {
 
 	const [hcg, setHcg] = useState(null)
 	const [loc, setLoc] = useState(startLoc)
+	// eslint-disable-next-line
 	const [_, forceUpdate] = useReducer((x) => x+1, 0) // sadly this is required
 
+	// initialisation
 	useEffect( ()=>{
 		let hcg = Grid.rectangle({
 			width: startLoc.x * 2, height: startLoc.y * 2,
