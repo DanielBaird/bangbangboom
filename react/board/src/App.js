@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import * as Honeycomb from 'honeycomb-grid'
 
@@ -6,6 +6,7 @@ import './App.css'
 import HexBoard from './components/HexBoard'
 import HexStacks from './components/HexStacks'
 import { getHexByType, hexStatuses } from './libraries/hexPool'
+import useForceRender from './utilities/useForceRender'
 import variables from './components/_variables.scss'
 
 const side = parseInt(variables.side, 10) // size of a hex
@@ -17,8 +18,7 @@ function App() {
 
 	const [hcg, setHcg] = useState(null)
 	const [loc, setLoc] = useState(startLoc)
-	// eslint-disable-next-line
-	const [_, forceUpdate] = useReducer((x) => x+1, 0) // sadly this is required
+	const forceRender = useForceRender()
 
 	// initialisation
 	useEffect( ()=>{
@@ -61,7 +61,7 @@ function App() {
 		if (clickedH.data.type !== 'impassable') {
 			setLoc(hexPos)
 		} else {
-			forceUpdate() // gotta do this
+			forceRender() // gotta do this
 		}
 	}
 

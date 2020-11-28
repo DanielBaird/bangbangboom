@@ -15,7 +15,7 @@
 	display: flex;
 	flex-direction: row;
 	align-items: flex-end;
-
+	min-height: $stackitemthickness * 40;
 }
 
 .hexstacks .stack {
@@ -24,12 +24,24 @@
 }
 
 .hexstacks .stacktitle {
+	position: relative;
 	margin: 0 -1em;
 	height: 1em;
 	font-size: 90%;
 	text-align: center;
 }
-
+.hexstacks .stacktitle .superceded {
+	opacity: 0.25;
+	text-decoration: line-through;
+}
+.hexstacks .stacktitle .stackfallback {
+	position: absolute;
+	left: 0; right: 0; top: 0.66em; bottom: -0.66em;
+	z-index: 11;
+	transform: rotate(-5deg);
+	text-shadow: 1px -1px 0 $hcbg, 0 -1px 0 $hcbg, -1px -1px 0 $hcbg;
+	// background-image: radial-gradient(closest-side, $hcbg 20%, rgba($hcbg, 0.8) 60%, rgba($hcbg, 0) 80%);
+}
 .hexstacks .stackgraph {
 	position: relative;
 }

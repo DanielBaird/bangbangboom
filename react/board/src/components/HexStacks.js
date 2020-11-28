@@ -18,21 +18,20 @@ function Stack(props) {
 	return (
 		<div className="stack">
 			<StackGraph count={props.remaining} />
-			<StackTitle title={props.type} />
+			<StackTitle title={props.type} fallback={props.remaining === 0 && props.fallback} />
 		</div>
 	)
 }
 // --------------------------------------------------------
-function StackTitle({title}) {
+function StackTitle({title, fallback}) {
+	if (fallback) {
+		return <div className="stacktitle">
+			<span className="superceded">{title}</span>
+			<span className="stackfallback">{fallback}</span>
+		</div>
+	}
 	return <div className="stacktitle">{title}</div>
 }
-// --------------------------------------------------------
-// function StackInfo({type, remaining, fallback}) {
-// 	return <div className="stackinfo">
-// 		<div className="stacktype">{type}</div>
-// 		<div className="stackcount">{remaining}</div>
-// 	</div>
-// }
 // --------------------------------------------------------
 function StackGraph({count}) {
 	const layers = Array(count).fill('').map((l, i) => {
