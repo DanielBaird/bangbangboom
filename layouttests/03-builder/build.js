@@ -7,7 +7,7 @@ const buildCards = require('./src/buildcards')
 // get data for the cards
 const cardList = require('./data/cards.json')
 // pick a file to save cards to
-const CARDFILE = './docs/cards.html'
+const CARDFILE = '../../docs/cards.html'
 // build the cards
 buildCards(cardList, CARDFILE)
 
@@ -17,8 +17,8 @@ const buildHexes = require('./src/buildhexes')
 // get data for the hexes
 const hexList = require('./data/hexes.json')
 // pick a file to save hexes to
-const ALLHEXFILE = './docs/allhexes.html'
-const SAMPLEHEXFILE = './docs/samplehexes.html'
+const ALLHEXFILE = '../../docs/allhexes.html'
+const SAMPLEHEXFILE = '../../docs/samplehexes.html'
 // build the hexes
 buildHexes(hexList, ALLHEXFILE)
 
